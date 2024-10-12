@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { AboutMe } from "./AboutMe";
+import { AboutMe } from "./components/AboutMe";
 import {Technologies} from "./components/Technologies";
 import { OtherSkills } from "./components/OtherSkills";
 import { Porjects } from "./components/Projects";
