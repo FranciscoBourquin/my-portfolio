@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AboutMe } from "./components/AboutMe";
 import {Technologies} from "./components/Technologies";
 import { OtherSkills } from "./components/OtherSkills";
-import { Porjects } from "./components/Projects";
+import { Projects } from "./components/Projects";
 
 export const Container = () => {
   const [counter, setCounter] = useState(5);
@@ -37,7 +37,7 @@ export const Container = () => {
           <AboutMe />
           <Technologies />
           <OtherSkills />
-          <Porjects />
+          <Projects />
         </>
       )}
     </Box>
