@@ -48,7 +48,7 @@ function App() {
               alt="Mi foto"
               style={{ borderRadius: "50%", width: "150px", height: "150px" }}
             />
-            <h1>Hola, soy [Tu Nombre]</h1>
+            <h1>Hola, soy Francisco Bourquin</h1>
           </Box>
         )}
 
