@@ -11,6 +11,8 @@ function App() {
   const [showComponents, setShowComponents] = useState(false);
   const [showExplosion, setShowExplosion] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
+  const [showAboutMe, setShowAboutMe] = useState(false);
+  const [countdownFinished, setCountdownFinished] = useState(false); // Nueva variable para controlar el estado del conteo
 
   const handleFinish = () => {
     setShowExplosion(true);
@@ -20,7 +22,23 @@ function App() {
 
     setTimeout(() => {
       setShowComponents(true);
+      setCountdownFinished(true); // Marcar que el conteo ha finalizado
     }, 1500);
+  };
+
+  const handleAboutMeClick = () => {
+    // Efecto de succión y ocultar otros componentes
+    setShowComponents(false);
+    setShowAboutMe(true);
+    setTimeout(() => {
+      setShowPhoto(false);
+    }, 500); // Tiempo para ocultar la foto
+  };
+
+  const closeAboutMe = () => {
+    // Cerrar la sección "Sobre mí"
+    setShowAboutMe(false);
+    setShowComponents(true); // Mostrar nuevamente los otros componentes
   };
 
   return (
@@ -32,23 +50,22 @@ function App() {
         alignItems="center"
         height="100vh"
         position="relative"
+        overflow="hidden"
       >
-
-        {!showPhoto && (
+        {!showPhoto && !countdownFinished && (
           <Box display="flex" flexDirection="column" alignItems="center">
             <CountdownTimer onFinish={handleFinish} />
           </Box>
         )}
-
 
         {showPhoto && (
           <Box display="flex" flexDirection="column" alignItems="center">
             <img
               src="/yo.png"
               alt="Mi foto"
-              style={{ borderRadius: "50%", width: "150px", height: "150px" }}
+              className="rounded-full w-40 h-40"
             />
-            <h1>Hola, soy Francisco Bourquin</h1>
+            <h1 className="text-2xl">Hola, soy Francisco Bourquin</h1>
           </Box>
         )}
 
@@ -58,19 +75,59 @@ function App() {
 
         {showComponents && (
           <>
-            <Box position="absolute" top="10%" left="10%">
-              <AboutMe />
+            <Box
+              position="absolute"
+              top="10%"
+              left="10%"
+              transition="transform 0.5s, opacity 0.5s"
+              className={`transform ${showAboutMe ? 'translate-x-[-50%] translate-y-[-50%] scale-0' : ''}`}
+            >
+              <button onClick={handleAboutMeClick} className="focus:outline-none">
+                <AboutMe />
+              </button>
             </Box>
-            <Box position="absolute" top="10%" right="10%">
+            <Box
+              position="absolute"
+              top="10%"
+              right="10%"
+              transition="transform 0.5s, opacity 0.5s"
+              className={`transform ${showAboutMe ? 'translate-x-[-50%] translate-y-[-50%] scale-0' : ''}`}
+            >
               <Technologies />
             </Box>
-            <Box position="absolute" bottom="10%" left="10%">
+            <Box
+              position="absolute"
+              bottom="10%"
+              left="10%"
+              transition="transform 0.5s, opacity 0.5s"
+              className={`transform ${showAboutMe ? 'translate-x-[-50%] translate-y-[-50%] scale-0' : ''}`}
+            >
               <OtherSkills />
             </Box>
-            <Box position="absolute" bottom="10%" right="10%">
+            <Box
+              position="absolute"
+              bottom="10%"
+              right="10%"
+              transition="transform 0.5s, opacity 0.5s"
+              className={`transform ${showAboutMe ? 'translate-x-[-50%] translate-y-[-50%] scale-0' : ''}`}
+            >
               <Projects />
             </Box>
           </>
+        )}
+
+        {showAboutMe && (
+          <Box
+            className={`absolute flex flex-col justify-center items-center h-full w-full transition-opacity duration-500 ${showAboutMe ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <AboutMe />
+            <button
+              onClick={closeAboutMe}
+              className="mt-4 bg-red-500 text-white py-2 px-4 rounded"
+            >
+              Cerrar
+            </button>
+          </Box>
         )}
       </Box>
     </>
