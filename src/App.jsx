@@ -1,7 +1,7 @@
 import { Navbar } from "./components/Navbar";
 import { AboutMeTitle } from "./components/AboutMe";
-import { TechnologiesTitle } from "./components/Technologies"; // Ahora importa TechnologiesTitle
-import { OtherSkills } from "./components/OtherSkills";
+import { TechnologiesTitle } from "./components/Technologies";
+import { OtherSkillsTitle } from "./components/OtherSkills";
 import { Projects } from "./components/Projects";
 import { Box } from "@chakra-ui/react";
 import { CountdownTimer } from "./components/CountdownTimer";
@@ -73,7 +73,7 @@ function App() {
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <TechnologiesTitle /> {/* Lógica igual a AboutMeTitle */}
+              <TechnologiesTitle />
             </Box>
             <Box
               position="absolute"
@@ -81,7 +81,7 @@ function App() {
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <OtherSkills />
+              <OtherSkillsTitle />
             </Box>
             <Box
               position="absolute"
