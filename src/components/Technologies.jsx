@@ -11,7 +11,7 @@ import {
   Icon,
   SimpleGrid,
   Flex,
-  useColorMode,  // Importa useColorMode
+  useColorMode,
 } from "@chakra-ui/react";
 import {
   SiJavascript,
@@ -27,7 +27,7 @@ import { FaLock, FaShieldAlt, FaDatabase } from "react-icons/fa";
 
 export const TechnologiesTitle = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { colorMode } = useColorMode();  // Obtiene el colorMode
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -36,7 +36,7 @@ export const TechnologiesTitle = () => {
         borderRadius="md"
         padding={4}
         textAlign="center"
-        _hover={{ bg: colorMode === "light" ? "gray.200" : "gray.600" }}  // Cambia el color de hover
+        _hover={{ bg: colorMode === "light" ? "gray.200" : "gray.600" }}
         transition="background-color 0.2s"
         cursor="pointer"
         onClick={onOpen}
@@ -51,7 +51,7 @@ export const TechnologiesTitle = () => {
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={3} spacing={10} textAlign="center">
-              {/* Íconos con Chakra UI */}
+
               <Box>
                 <Icon as={SiJavascript} w={12} h={12} color="yellow.400" />
                 <Text>JavaScript</Text>
