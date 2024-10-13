@@ -1,6 +1,6 @@
 import { Navbar } from "./components/Navbar";
 import { AboutMeTitle } from "./components/AboutMe";
-import { Technologies } from "./components/Technologies";
+import { TechnologiesTitle } from "./components/Technologies"; // Ahora importa TechnologiesTitle
 import { OtherSkills } from "./components/OtherSkills";
 import { Projects } from "./components/Projects";
 import { Box } from "@chakra-ui/react";
@@ -73,7 +73,7 @@ function App() {
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <Technologies />
+              <TechnologiesTitle /> {/* Lógica igual a AboutMeTitle */}
             </Box>
             <Box
               position="absolute"
