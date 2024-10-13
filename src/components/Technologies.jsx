@@ -11,6 +11,7 @@ import {
   Icon,
   SimpleGrid,
   Flex,
+  useColorMode,  // Importa useColorMode
 } from "@chakra-ui/react";
 import {
   SiJavascript,
@@ -26,6 +27,7 @@ import { FaLock, FaShieldAlt, FaDatabase } from "react-icons/fa";
 
 export const TechnologiesTitle = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode } = useColorMode();  // Obtiene el colorMode
 
   return (
     <>
@@ -34,7 +36,7 @@ export const TechnologiesTitle = () => {
         borderRadius="md"
         padding={4}
         textAlign="center"
-        _hover={{ bg: "gray.200" }}
+        _hover={{ bg: colorMode === "light" ? "gray.200" : "gray.600" }}  // Cambia el color de hover
         transition="background-color 0.2s"
         cursor="pointer"
         onClick={onOpen}
@@ -44,7 +46,7 @@ export const TechnologiesTitle = () => {
 
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
-        <ModalContent marginTop="20px"> {/* Ajusta el valor según sea necesario */}
+        <ModalContent marginTop="20px">
           <ModalHeader>Tecnologías que utilizo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -66,13 +68,10 @@ export const TechnologiesTitle = () => {
                 <Icon as={SiReact} w={12} h={12} color="cyan.500" />
                 <Text>React</Text>
               </Box>
-
-              {/* Icono de JWT con color */}
               <Box>
                 <Icon as={FaLock} w={12} h={12} color="orange.400" />
                 <Text>JWT</Text>
               </Box>
-
               <Box>
                 <Icon as={FaShieldAlt} w={12} h={12} color="purple.500" />
                 <Text>Bcrypt</Text>
@@ -93,8 +92,6 @@ export const TechnologiesTitle = () => {
                 <Icon as={SiBootstrap} w={12} h={12} color="purple.600" />
                 <Text>Bootstrap</Text>
               </Box>
-
-              {/* Imágenes con Flex para alinear */}
               <Flex direction="column" align="center">
                 <img
                   src="/express.png"
@@ -127,8 +124,6 @@ export const TechnologiesTitle = () => {
                 />
                 <Text>Socket.io</Text>
               </Flex>
-
-              {/* Nuevas imágenes añadidas */}
               <Flex direction="column" align="center">
                 <img
                   src="/postman.png"
@@ -153,8 +148,6 @@ export const TechnologiesTitle = () => {
                 />
                 <Text>Handlebars</Text>
               </Flex>
-
-              {/* Ícono de MongoDB */}
               <Box>
                 <Icon as={FaDatabase} w={12} h={12} color="green.500" />
                 <Text>MongoDB</Text>
