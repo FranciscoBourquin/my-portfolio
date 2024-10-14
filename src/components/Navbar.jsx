@@ -1,6 +1,6 @@
 import { Box, Flex, HStack, Link, IconButton, useColorMode, Spacer, Image } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { Link as ScrollLink } from "react-scroll"; // Importa el componente ScrollLink
+import { Link as ScrollLink } from "react-scroll";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
