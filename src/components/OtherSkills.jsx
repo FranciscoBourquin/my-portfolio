@@ -11,7 +11,11 @@ import {
   useColorModeValue,
   Progress,
   Image,
+  List,
+  ListItem,
+  ListIcon,
 } from "@chakra-ui/react";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 
 export const OtherSkillsTitle = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,7 +53,6 @@ export const OtherSkillsTitle = () => {
 export const OtherSkillsContent = () => {
   return (
     <Box mt={4} textAlign="center">
-
       <Text fontSize="2xl" mb={4}>Idiomas</Text>
 
       <Box mb={4}>
@@ -87,6 +90,27 @@ export const OtherSkillsContent = () => {
         />
         <Progress value={60} size="lg" colorScheme="yellow" />
       </Box>
+
+      <Text fontSize="2xl" mb={4}>Otras Aptitudes</Text>
+
+      <List spacing={3} textAlign="left">
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          Experiencia en docencia
+        </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          Escucha activa
+        </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          Comunicación efectiva
+        </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          Trabajo individual o cooperativo grupal
+        </ListItem>
+      </List>
     </Box>
   );
 };
