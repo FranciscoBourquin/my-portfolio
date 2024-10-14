@@ -44,14 +44,13 @@ export const TechnologiesTitle = () => {
         <Text fontSize="xl">Tecnologías</Text>
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="xl">
+      <Modal isOpen={isOpen} onClose={onClose} size="xl" scrollBehavior="inside">
         <ModalOverlay />
-        <ModalContent marginTop="20px">
+        <ModalContent marginTop="5px">
           <ModalHeader>Tecnologías que utilizo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={3} spacing={10} textAlign="center">
-
               <Box>
                 <Icon as={SiJavascript} w={12} h={12} color="yellow.400" />
                 <Text>JavaScript</Text>
@@ -152,6 +151,15 @@ export const TechnologiesTitle = () => {
                 <Icon as={FaDatabase} w={12} h={12} color="green.500" />
                 <Text>MongoDB</Text>
               </Box>
+
+              <Flex direction="column" align="center">
+                <img
+                  src="/redux.png"
+                  alt="Redux"
+                  style={{ width: "48px", height: "48px" }}
+                />
+                <Text>Redux</Text>
+              </Flex>
             </SimpleGrid>
           </ModalBody>
         </ModalContent>
