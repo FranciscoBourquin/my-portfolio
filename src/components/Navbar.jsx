@@ -1,5 +1,6 @@
 import { Box, Flex, HStack, Link, IconButton, useColorMode, Spacer, Image } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { Link as ScrollLink } from "react-scroll"; // Importa el componente ScrollLink
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -14,21 +15,11 @@ export const Navbar = () => {
         <Spacer />
 
         <HStack spacing={4}>
-          <Link href="#about" fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
-            Sobre Mí
-          </Link>
-          <Link href="#technologies" fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
-            Tecnologías
-          </Link>
-          <Link href="#skills" fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
-            Otras Habilidades
-          </Link>
-          <Link href="#projects" fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
-            Proyectos
-          </Link>
-          <Link href="#contact" fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
-            Contacto
-          </Link>
+          <ScrollLink to="contact" smooth={true} duration={500}>
+            <Link fontWeight="medium" color={colorMode === "light" ? "black" : "white"}>
+              Contacto
+            </Link>
+          </ScrollLink>
 
           <IconButton
             aria-label="Toggle color mode"

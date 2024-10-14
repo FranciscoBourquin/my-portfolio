@@ -1,11 +1,11 @@
 import { Box, Text, Link, Icon, useColorModeValue } from "@chakra-ui/react";
-import { FaEnvelope, FaWhatsapp } from "react-icons/fa"; // Icono del sobre y WhatsApp
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export const Footer = () => {
   const bgColor = useColorModeValue("gray.100", "gray.700");
 
   return (
-    <Box as="footer" py={4} bg={bgColor} textAlign="center">
+    <Box as="footer" id="contact" py={4} bg={bgColor} textAlign="center">
       <Text fontSize="sm">
         Todos los derechos reservados © Francisco Bourquin 2024
       </Text>
