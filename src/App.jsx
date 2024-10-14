@@ -3,6 +3,7 @@ import { AboutMeTitle } from "./components/AboutMe";
 import { TechnologiesTitle } from "./components/Technologies";
 import { OtherSkillsTitle } from "./components/OtherSkills";
 import { Projects } from "./components/Projects";
+import { Footer } from "./components/Footer";
 import { Box } from "@chakra-ui/react";
 import { CountdownTimer } from "./components/CountdownTimer";
 import { useState } from "react";
@@ -77,7 +78,7 @@ function App() {
             </Box>
             <Box
               position="absolute"
-              bottom="10%"
+              bottom="15%" // Ajustado para evitar scroll
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
@@ -85,7 +86,7 @@ function App() {
             </Box>
             <Box
               position="absolute"
-              bottom="10%"
+              bottom="15%" // Ajustado para evitar scroll
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
@@ -94,6 +95,8 @@ function App() {
           </>
         )}
       </Box>
+      {/* Footer con derechos reservados y enlace de correo */}
+      <Footer />
     </>
   );
 }
