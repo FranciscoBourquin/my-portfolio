@@ -71,7 +71,10 @@ export const AboutMeContent = () => {
         </Box>
 
         <Text fontSize="lg">
-          Soy un desarrollador apasionado por la tecnología y el aprendizaje continuo. Me encanta resolver problemas y crear soluciones eficientes a través del código.
+          Desarrollador Full stack jr. Me especializo en el stack MERN (Mongo, Express, React, Node).
+          También manejo Python y Flask.
+          Aprendiendo Java.
+          Siempre dispuesto a aprender algo nuevo
         </Text>
 
         <Box
