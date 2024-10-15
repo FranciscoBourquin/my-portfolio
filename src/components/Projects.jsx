@@ -46,7 +46,7 @@ export const Projects = () => {
                   alt="MERN Task App"
                   style={{ width: "600px", height: "auto" }}
                 />
-                <Text as="a" href="https://mern-task-ml6n.onrender.com/" target="_blank">
+                <Text as="a" href="https://mern-task-ml6n.onrender.com" target="_blank">
                   MERN Task App
                 </Text>
                 <Text>Tecnologías: MongoDB, Express, React, Node.js</Text>
@@ -59,7 +59,7 @@ export const Projects = () => {
                   alt="Python Chat App"
                   style={{ width: "600px", height: "auto" }}
                 />
-                <Text as="a" href="https://python-chat-app-oaim.onrender.com" target="_blank">
+                <Text as="a" href="https://python-chat-app-oaim.onrender.com/" target="_blank">
                   Python Chat App
                 </Text>
                 <Text>Tecnologías: Python, Flask, WebSockets</Text>
