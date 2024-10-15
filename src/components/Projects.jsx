@@ -12,8 +12,9 @@ import {
   Flex,
   useColorMode,
 } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
-export const Projects = () => {
+export const Projects = ({ isEnglish }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
@@ -29,13 +30,15 @@ export const Projects = () => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">Proyectos</Text>
+        <Text fontSize="xl">{isEnglish ? "Projects" : "Proyectos"}</Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} size="4xl">
         <ModalOverlay />
         <ModalContent marginTop="20px" maxHeight="95vh" overflowY="auto">
-          <ModalHeader>Proyectos que he realizado</ModalHeader>
+          <ModalHeader>
+            {isEnglish ? "Projects I have completed" : "Proyectos que he realizado"}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex direction="column" align="center" gap={8}>
@@ -49,7 +52,7 @@ export const Projects = () => {
                 <Text as="a" href="https://mern-task-ml6n.onrender.com" target="_blank">
                   MERN Task App
                 </Text>
-                <Text>Tecnologías: MongoDB, Express, React, Node.js</Text>
+                <Text>{isEnglish ? "Technologies: MongoDB, Express, React, Node.js" : "Tecnologías: MongoDB, Express, React, Node.js"}</Text>
               </Flex>
 
               {/* Proyecto 2 */}
@@ -62,7 +65,7 @@ export const Projects = () => {
                 <Text as="a" href="https://python-chat-app-oaim.onrender.com/" target="_blank">
                   Python Chat App
                 </Text>
-                <Text>Tecnologías: Python, Flask, WebSockets</Text>
+                <Text>{isEnglish ? "Technologies: Python, Flask, WebSockets" : "Tecnologías: Python, Flask, WebSockets"}</Text>
               </Flex>
             </Flex>
           </ModalBody>
@@ -70,4 +73,8 @@ export const Projects = () => {
       </Modal>
     </>
   );
+};
+
+Projects.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
 };

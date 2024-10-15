@@ -24,8 +24,9 @@ import {
   SiBootstrap,
 } from "react-icons/si";
 import { FaLock, FaShieldAlt, FaDatabase } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-export const TechnologiesTitle = () => {
+export const TechnologiesTitle = ({ isEnglish }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
@@ -41,13 +42,13 @@ export const TechnologiesTitle = () => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">Tecnologías</Text>
+        <Text fontSize="xl">{isEnglish ? "Technologies" : "Tecnologías"}</Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} size="xl" scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent marginTop="5px">
-          <ModalHeader>Tecnologías que utilizo</ModalHeader>
+          <ModalHeader>{isEnglish ? "Technologies I use" : "Tecnologías que utilizo"}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <SimpleGrid columns={3} spacing={10} textAlign="center">
@@ -166,4 +167,8 @@ export const TechnologiesTitle = () => {
       </Modal>
     </>
   );
+};
+
+TechnologiesTitle.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
 };
