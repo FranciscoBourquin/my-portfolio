@@ -1,19 +1,21 @@
 import { Navbar } from "./components/Navbar";
 import { AboutMeTitle } from "./components/AboutMe";
 import { TechnologiesTitle } from "./components/Technologies";
-import { OtherSkillsTitle } from "./components/OtherSkills";
+import { OtherSkillsTitle } from "./components/OtherSkills"; // Importa el título de habilidades
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { Box } from "@chakra-ui/react";
 import { CountdownTimer } from "./components/CountdownTimer";
 import { useState } from "react";
+import { OtherSkillsContent } from "./components/OtherSkills";
 
 function App() {
   const [showComponents, setShowComponents] = useState(false);
   const [showExplosion, setShowExplosion] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [countdownFinished, setCountdownFinished] = useState(false);
-  const [isEnglish, setIsEnglish] = useState(false); // Estado de idioma
+  const [isEnglish, setIsEnglish] = useState(false);
+  const [showOtherSkills, setShowOtherSkills] = useState(false);
 
   const handleFinish = () => {
     setShowExplosion(true);
@@ -29,6 +31,10 @@ function App() {
 
   const toggleLanguage = (language) => {
     setIsEnglish(language);
+  };
+
+  const toggleOtherSkills = () => {
+    setShowOtherSkills(!showOtherSkills);
   };
 
   return (
@@ -88,6 +94,7 @@ function App() {
               bottom="15%"
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
+              onClick={toggleOtherSkills}
             >
               <OtherSkillsTitle isEnglish={isEnglish} />
             </Box>
@@ -102,6 +109,7 @@ function App() {
           </>
         )}
       </Box>
+      {showOtherSkills && <OtherSkillsContent isEnglish={isEnglish} />}
       <Footer isEnglish={isEnglish} />
     </>
   );

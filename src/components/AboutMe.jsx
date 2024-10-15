@@ -52,6 +52,18 @@ AboutMeTitle.propTypes = {
 export const AboutMeContent = ({ isEnglish }) => {
   return (
     <Box mt={4} position="relative">
+
+      <Box
+        position="absolute"
+        top="-10px"
+        left="0"
+        fontSize="5xl"
+        color="gray.400"
+        marginLeft={4}
+      >
+        &ldquo;
+      </Box>
+
       <Box
         border="1px solid black"
         borderRadius="md"
@@ -60,12 +72,25 @@ export const AboutMeContent = ({ isEnglish }) => {
         maxWidth="400px"
         margin="0 auto"
         position="relative"
+        paddingTop="60px" // Espacio para la comilla superior
+        paddingBottom="60px" // Espacio para la comilla inferior
       >
         <Text fontSize="lg">
           {isEnglish
             ? "Junior Full stack developer specializing in the MERN stack (Mongo, Express, React, Node). Also proficient in Python and Flask. Learning Java. Always eager to learn something new."
             : "Desarrollador Full stack jr. Me especializo en el stack MERN (Mongo, Express, React, Node). También manejo Python y Flask. Aprendiendo Java. Siempre dispuesto a aprender algo nuevo."}
         </Text>
+      </Box>
+
+      <Box
+        position="absolute"
+        bottom="-30px"
+        right="0"
+        fontSize="5xl"
+        color="gray.400"
+        marginRight={4}
+      >
+        &rdquo;
       </Box>
     </Box>
   );

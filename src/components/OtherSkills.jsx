@@ -16,8 +16,9 @@ import {
   ListIcon,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
+import PropTypes from "prop-types";
 
-export const OtherSkillsTitle = () => {
+export const OtherSkillsTitle = ({ isEnglish }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const hoverColor = useColorModeValue("gray.200", "gray.600");
 
@@ -33,16 +34,18 @@ export const OtherSkillsTitle = () => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">Otras Habilidades</Text>
+        <Text fontSize="xl">
+          {isEnglish ? "Other Skills" : "Otras Habilidades"}
+        </Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Otras Habilidades</ModalHeader>
+          <ModalHeader>{isEnglish ? "Other Skills" : "Otras Habilidades"}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <OtherSkillsContent />
+            <OtherSkillsContent isEnglish={isEnglish} />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -50,16 +53,16 @@ export const OtherSkillsTitle = () => {
   );
 };
 
-export const OtherSkillsContent = () => {
+export const OtherSkillsContent = ({ isEnglish }) => {
   return (
     <Box mt={4} textAlign="center">
-      <Text fontSize="2xl" mb={4}>Idiomas</Text>
+      <Text fontSize="2xl" mb={4}>{isEnglish ? "Languages" : "Idiomas"}</Text>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>Español - Nativo</Text>
+        <Text fontSize="lg" mb={2}>{isEnglish ? "Spanish - Native" : "Español - Nativo"}</Text>
         <Image
           src="/argentina.png"
-          alt="Bandera de Argentina"
+          alt={isEnglish ? "Argentinian Flag" : "Bandera de Argentina"}
           boxSize="40px"
           display="inline-block"
           mr={2}
@@ -68,10 +71,10 @@ export const OtherSkillsContent = () => {
       </Box>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>Inglés - C1 Avanzado</Text>
+        <Text fontSize="lg" mb={2}>{isEnglish ? "English - Advanced C1" : "Inglés - C1 Avanzado"}</Text>
         <Image
           src="/uk.png"
-          alt="Bandera de Reino Unido"
+          alt={isEnglish ? "UK Flag" : "Bandera de Reino Unido"}
           boxSize="40px"
           display="inline-block"
           mr={2}
@@ -80,10 +83,10 @@ export const OtherSkillsContent = () => {
       </Box>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>Portugués - B2 Intermedio</Text>
+        <Text fontSize="lg" mb={2}>{isEnglish ? "Portuguese - Intermediate B2" : "Portugués - B2 Intermedio"}</Text>
         <Image
           src="/brazil.png"
-          alt="Bandera de Brasil"
+          alt={isEnglish ? "Brazilian Flag" : "Bandera de Brasil"}
           boxSize="40px"
           display="inline-block"
           mr={2}
@@ -91,26 +94,35 @@ export const OtherSkillsContent = () => {
         <Progress value={60} size="lg" colorScheme="yellow" />
       </Box>
 
-      <Text fontSize="2xl" mb={4}>Otras Aptitudes</Text>
+      <Text fontSize="2xl" mb={4}>{isEnglish ? "Other Skills" : "Otras Aptitudes"}</Text>
 
       <List spacing={3} textAlign="left">
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          Experiencia en docencia
+          {isEnglish ? "Experience in teaching" : "Experiencia en docencia"}
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          Escucha activa
+          {isEnglish ? "Active listening" : "Escucha activa"}
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          Comunicación efectiva
+          {isEnglish ? "Effective communication" : "Comunicación efectiva"}
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          Trabajo individual o cooperativo grupal
+          {isEnglish ? "Teamwork or independent work" : "Trabajo individual o cooperativo grupal"}
         </ListItem>
       </List>
     </Box>
   );
+};
+
+// Añadir PropTypes para las props
+OtherSkillsTitle.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
+};
+
+OtherSkillsContent.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
 };
