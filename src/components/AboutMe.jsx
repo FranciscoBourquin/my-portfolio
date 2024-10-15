@@ -11,13 +11,12 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 
-export const AboutMeTitle = () => {
+export const AboutMeTitle = ({ isEnglish }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
   return (
     <>
-
       <Box
         borderWidth="1px"
         borderRadius="md"
@@ -28,17 +27,18 @@ export const AboutMeTitle = () => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">Sobre Mí</Text>
+        <Text fontSize="xl">
+          {isEnglish ? "About Me" : "Sobre Mí"}
+        </Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Sobre Mí</ModalHeader>
+          <ModalHeader>{isEnglish ? "About Me" : "Sobre Mí"}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-
-            <AboutMeContent />
+            <AboutMeContent isEnglish={isEnglish} />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -46,7 +46,7 @@ export const AboutMeTitle = () => {
   );
 };
 
-export const AboutMeContent = () => {
+export const AboutMeContent = ({ isEnglish }) => {
   return (
     <Box mt={4} position="relative">
       <Box
@@ -58,35 +58,11 @@ export const AboutMeContent = () => {
         margin="0 auto"
         position="relative"
       >
-
-        <Box
-          position="absolute"
-          top="10px"
-          left="10px"
-          fontSize="4xl"
-          fontWeight="bold"
-          color="gray.400"
-        >
-          “
-        </Box>
-
         <Text fontSize="lg">
-          Desarrollador Full stack jr. Me especializo en el stack MERN (Mongo, Express, React, Node).
-          También manejo Python y Flask.
-          Aprendiendo Java.
-          Siempre dispuesto a aprender algo nuevo
+          {isEnglish
+            ? "Junior Full stack developer specializing in the MERN stack (Mongo, Express, React, Node). Also proficient in Python and Flask. Learning Java. Always eager to learn something new."
+            : "Desarrollador Full stack jr. Me especializo en el stack MERN (Mongo, Express, React, Node). También manejo Python y Flask. Aprendiendo Java. Siempre dispuesto a aprender algo nuevo."}
         </Text>
-
-        <Box
-          position="absolute"
-          bottom="-20px"
-          right="10px"
-          fontSize="4xl"
-          fontWeight="bold"
-          color="gray.400"
-        >
-          ”
-        </Box>
       </Box>
     </Box>
   );

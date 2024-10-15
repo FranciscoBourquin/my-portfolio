@@ -13,6 +13,7 @@ function App() {
   const [showExplosion, setShowExplosion] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [countdownFinished, setCountdownFinished] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(false); // Estado de idioma
 
   const handleFinish = () => {
     setShowExplosion(true);
@@ -26,9 +27,13 @@ function App() {
     }, 1500);
   };
 
+  const toggleLanguage = (language) => {
+    setIsEnglish(language);
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
       <Box
         display="flex"
         justifyContent="center"
@@ -50,7 +55,9 @@ function App() {
               alt="Mi foto"
               className="rounded-full w-40 h-40"
             />
-            <h1 className="text-2xl">Hola, soy Francisco Bourquin</h1>
+            <h1 className="text-2xl">
+              {isEnglish ? "Hello, I am Francisco Bourquin" : "Hola, soy Francisco Bourquin"}
+            </h1>
           </Box>
         )}
 
@@ -66,7 +73,7 @@ function App() {
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <AboutMeTitle />
+              <AboutMeTitle isEnglish={isEnglish} />
             </Box>
             <Box
               position="absolute"
@@ -74,29 +81,28 @@ function App() {
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <TechnologiesTitle />
+              <TechnologiesTitle isEnglish={isEnglish} />
             </Box>
             <Box
               position="absolute"
-              bottom="15%" // Ajustado para evitar scroll
+              bottom="15%"
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <OtherSkillsTitle />
+              <OtherSkillsTitle isEnglish={isEnglish} />
             </Box>
             <Box
               position="absolute"
-              bottom="15%" // Ajustado para evitar scroll
+              bottom="15%"
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
-              <Projects />
+              <Projects isEnglish={isEnglish} />
             </Box>
           </>
         )}
       </Box>
-      {/* Footer con derechos reservados y enlace de correo */}
-      <Footer />
+      <Footer isEnglish={isEnglish} />
     </>
   );
 }
