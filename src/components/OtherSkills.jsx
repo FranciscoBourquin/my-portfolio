@@ -34,9 +34,7 @@ export const OtherSkillsTitle = ({ isEnglish }) => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">
-          {isEnglish ? "Other Skills" : "Otras Habilidades"}
-        </Text>
+        <Text fontSize="xl">{isEnglish ? "Other Skills" : "Otras Habilidades"}</Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -53,16 +51,22 @@ export const OtherSkillsTitle = ({ isEnglish }) => {
   );
 };
 
+OtherSkillsTitle.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
+};
+
 export const OtherSkillsContent = ({ isEnglish }) => {
   return (
     <Box mt={4} textAlign="center">
       <Text fontSize="2xl" mb={4}>{isEnglish ? "Languages" : "Idiomas"}</Text>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>{isEnglish ? "Spanish - Native" : "Español - Nativo"}</Text>
+        <Text fontSize="lg" mb={2}>
+          {isEnglish ? "Spanish - Native" : "Español - Nativo"}
+        </Text>
         <Image
           src="/argentina.png"
-          alt={isEnglish ? "Argentinian Flag" : "Bandera de Argentina"}
+          alt={isEnglish ? "Argentina Flag" : "Bandera de Argentina"}
           boxSize="40px"
           display="inline-block"
           mr={2}
@@ -71,7 +75,9 @@ export const OtherSkillsContent = ({ isEnglish }) => {
       </Box>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>{isEnglish ? "English - Advanced C1" : "Inglés - C1 Avanzado"}</Text>
+        <Text fontSize="lg" mb={2}>
+          {isEnglish ? "English - C1 Advanced" : "Inglés - C1 Avanzado"}
+        </Text>
         <Image
           src="/uk.png"
           alt={isEnglish ? "UK Flag" : "Bandera de Reino Unido"}
@@ -83,10 +89,12 @@ export const OtherSkillsContent = ({ isEnglish }) => {
       </Box>
 
       <Box mb={4}>
-        <Text fontSize="lg" mb={2}>{isEnglish ? "Portuguese - Intermediate B2" : "Portugués - B2 Intermedio"}</Text>
+        <Text fontSize="lg" mb={2}>
+          {isEnglish ? "Portuguese - B2 Intermediate" : "Portugués - B2 Intermedio"}
+        </Text>
         <Image
           src="/brazil.png"
-          alt={isEnglish ? "Brazilian Flag" : "Bandera de Brasil"}
+          alt={isEnglish ? "Brazil Flag" : "Bandera de Brasil"}
           boxSize="40px"
           display="inline-block"
           mr={2}
@@ -99,7 +107,7 @@ export const OtherSkillsContent = ({ isEnglish }) => {
       <List spacing={3} textAlign="left">
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          {isEnglish ? "Experience in teaching" : "Experiencia en docencia"}
+          {isEnglish ? "Teaching experience" : "Experiencia en docencia"}
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
@@ -111,16 +119,13 @@ export const OtherSkillsContent = ({ isEnglish }) => {
         </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
-          {isEnglish ? "Teamwork or independent work" : "Trabajo individual o cooperativo grupal"}
+          {isEnglish
+            ? "Individual or group cooperative work"
+            : "Trabajo individual o cooperativo grupal"}
         </ListItem>
       </List>
     </Box>
   );
-};
-
-// Añadir PropTypes para las props
-OtherSkillsTitle.propTypes = {
-  isEnglish: PropTypes.bool.isRequired,
 };
 
 OtherSkillsContent.propTypes = {

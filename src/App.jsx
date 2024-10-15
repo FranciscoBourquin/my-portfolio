@@ -1,13 +1,12 @@
 import { Navbar } from "./components/Navbar";
 import { AboutMeTitle } from "./components/AboutMe";
 import { TechnologiesTitle } from "./components/Technologies";
-import { OtherSkillsTitle } from "./components/OtherSkills"; // Importa el título de habilidades
+import { OtherSkillsTitle } from "./components/OtherSkills";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { Box } from "@chakra-ui/react";
 import { CountdownTimer } from "./components/CountdownTimer";
 import { useState } from "react";
-import { OtherSkillsContent } from "./components/OtherSkills";
 
 function App() {
   const [showComponents, setShowComponents] = useState(false);
@@ -15,7 +14,6 @@ function App() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [countdownFinished, setCountdownFinished] = useState(false);
   const [isEnglish, setIsEnglish] = useState(false);
-  const [showOtherSkills, setShowOtherSkills] = useState(false);
 
   const handleFinish = () => {
     setShowExplosion(true);
@@ -31,10 +29,6 @@ function App() {
 
   const toggleLanguage = (language) => {
     setIsEnglish(language);
-  };
-
-  const toggleOtherSkills = () => {
-    setShowOtherSkills(!showOtherSkills);
   };
 
   return (
@@ -62,7 +56,9 @@ function App() {
               className="rounded-full w-40 h-40"
             />
             <h1 className="text-2xl">
-              {isEnglish ? "Hello, I am Francisco Bourquin" : "Hola, soy Francisco Bourquin"}
+              {isEnglish
+                ? "Hello, I am Francisco Bourquin"
+                : "Hola, soy Francisco Bourquin"}
             </h1>
           </Box>
         )}
@@ -91,16 +87,15 @@ function App() {
             </Box>
             <Box
               position="absolute"
-              bottom="15%"
+              bottom="10%"
               left="10%"
               transition="transform 0.5s, opacity 0.5s"
-              onClick={toggleOtherSkills}
             >
-              <OtherSkillsTitle isEnglish={isEnglish} />
+              <OtherSkillsTitle isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
             </Box>
             <Box
               position="absolute"
-              bottom="15%"
+              bottom="10%"
               right="10%"
               transition="transform 0.5s, opacity 0.5s"
             >
@@ -109,7 +104,6 @@ function App() {
           </>
         )}
       </Box>
-      {showOtherSkills && <OtherSkillsContent isEnglish={isEnglish} />}
       <Footer isEnglish={isEnglish} />
     </>
   );
