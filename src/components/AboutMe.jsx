@@ -10,6 +10,7 @@ import {
   useDisclosure,
   useColorMode,
 } from "@chakra-ui/react";
+import PropTypes from "prop-types";
 
 export const AboutMeTitle = ({ isEnglish }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,9 +28,7 @@ export const AboutMeTitle = ({ isEnglish }) => {
         cursor="pointer"
         onClick={onOpen}
       >
-        <Text fontSize="xl">
-          {isEnglish ? "About Me" : "Sobre Mí"}
-        </Text>
+        <Text fontSize="xl">{isEnglish ? "About Me" : "Sobre Mí"}</Text>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -44,6 +43,10 @@ export const AboutMeTitle = ({ isEnglish }) => {
       </Modal>
     </>
   );
+};
+
+AboutMeTitle.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
 };
 
 export const AboutMeContent = ({ isEnglish }) => {
@@ -66,4 +69,8 @@ export const AboutMeContent = ({ isEnglish }) => {
       </Box>
     </Box>
   );
+};
+
+AboutMeContent.propTypes = {
+  isEnglish: PropTypes.bool.isRequired,
 };
